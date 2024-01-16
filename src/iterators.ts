@@ -37,9 +37,18 @@ export async function mapSeriesSafe<ItemType>(data: ItemType[], fn: (item: ItemT
   })
 }
 
+export const asyncForEach = eachSeries
+export const asyncForEachSafe = eachSeriesSafe
+export const asyncMap = mapSeries
+export const asyncMapSafe = mapSeriesSafe
+
 export default {
   eachSeries,
   eachSeriesSafe,
   mapSeries,
   mapSeriesSafe,
+  asyncMap,
+  asyncMapSafe,
+  asyncForEach,
+  asyncForEachSafe,
 }
