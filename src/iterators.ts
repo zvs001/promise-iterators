@@ -29,7 +29,8 @@ export async function mapSeries<ItemReturnType, ItemType>(data: ItemType[], fn: 
 export async function mapSeriesSafe<ItemType>(data: ItemType[], fn: (item: ItemType, index: number) => Promise<any>) {
   return mapSeries(data, async (item, index) => {
     try {
-      await fn(item, index)
+      let fnRes = await fn(item, index)
+      return fnRes
     } catch (e) {
       console.error(`mapSeriesSafe [${index}]`, e)
     }
